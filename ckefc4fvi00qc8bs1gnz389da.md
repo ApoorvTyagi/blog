@@ -2,12 +2,13 @@
 
 A merkle tree is a tree founded by Angela Merkel (Chancellor of Germany). Wait...that is something different.🙃
 
-A **merkle tree** is nothing but another data structure like a binary tree but with addition to hash pointers. Now what is a hash pointer?.
+A **merkle tree** is nothing but another data structure like a binary tree but with addition to **hash pointers**. Now what is a hash pointer?.
 
 The Hash pointers simply points to a place where some data can be stored after being hashed with a cryptographic function to make the data secure. The best example that uses hash pointers are blockchains. 
 
-Now coming back to the merkle tree, data blocks are grouped in pairs and the hash of each of these blocks is stored in a parent node.The parent nodes are in turn grouped in pairs and their hashes stored one level up the tree. This continues all the way up the tree until we reach the root node. 
-If an adversary tampers with some data block at the bottom of the tree that will cause the hash pointer that’s one level up to not match, and even if the person continues to tamper with this block, the change will eventually propagate to the top of the tree where they won’t be able to tamper with the hash pointer that we’ve stored.
+Now coming back to the merkle tree, data blocks are grouped in pairs and the hash of each of these blocks is stored in a parent node. The parent nodes are in turn grouped in pairs and their hashes stored one level up the tree. This continues all the way up the tree until we reach the root node.
+
+If an adversary tampers with any data block at the bottom of the tree, that will cause the hash pointer that’s one level up to not match, and even if the person continues to tamper with this block, the change will eventually propagate to the top of the tree where they won’t be able to tamper with the hash pointer that we’ve stored.
 
 The below diagram explains the structure:
 
@@ -18,7 +19,7 @@ Let's now see the the use cases. There are 3 major system that uses merkle tree 
 - Amazon Dynamo DB
 - Blockchain
 
-Before we talk about the use cases of merkle tree let's first have a look at some of the operations we can perform and their complexity:
+Before we talk about the use cases of merkle tree we must have a look at some of the operations we can perform and their complexity:
 - Search O(logn)
 - Traverse  O(n)
 - Insertion  O(n)
@@ -26,7 +27,7 @@ Before we talk about the use cases of merkle tree let's first have a look at som
 
 Now let's have a look into one of the use case of Merkle trees which is Amaon DynamoDB:
 
-Amazon's dynamodb is one of the NoSql database which consist of the many nodes in a cluster and these nodes are continuously performing consistent hashing which is a special kind of hashing such that when hash table is resized only K/n keys need to be remapped where K is number of keys and n is number of slots unlike most traditional hash tables where change in a number of slots causes all keys to be remapped. 
+Amazon's dynamodb is one of the NoSql database which consist of the many nodes in a cluster and these nodes are continuously performing **consistent hashing** which is a special kind of hashing such that when hash table is resized only K/n keys need to be remapped where K is number of keys and n is number of slots unlike most traditional hash tables where change in a number of slots causes all keys to be remapped. 
 
 Now in order to do consistent hashing we require data migration and at the same time we also want to minimize this data migration. What do think will help in this case?
 ![trees-man-merkle-trees.jpg](https://cdn.hashnode.com/res/hashnode/image/upload/v1598705429393/yS8mEc0TP.jpeg)
