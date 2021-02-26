@@ -1,4 +1,4 @@
-## How i automated my WhatsApp chats
+## How I Automated My WhatsApp chats
 
 # Introduction
 
